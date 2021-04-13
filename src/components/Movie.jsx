@@ -13,12 +13,12 @@ const Movie = (props) => {
 
   return (
     <>
-      <div>
+      <div className="movieCard">
         {/* <img src={img_api + poster_path} alt="movie_poster" /> */}
         <h3>{title}</h3>
         <div>{vote_average}</div>
         <p>{overview}</p>
-        <div>{release_date}</div>
+        <div>Realease date: {release_date}</div>
       </div>
     </>
   );

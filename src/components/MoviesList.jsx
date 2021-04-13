@@ -1,35 +1,47 @@
 import React, { Component } from "react";
-import axios from "axios";
+//import axios from "axios";
 import SearchAppBar from "./SearchBar";
 import Movie from "./Movie";
+import movieJson from "../movies.json";
 
 class MoviesList extends Component {
   state = {
-    movies: [],
+    movies: movieJson.results,
     selectedMovie: null,
+    search: "",
   };
 
-  componentDidMount() {
-    axios
-      .get(
-        "https://s3.us-west-2.amazonaws.com/secure.notion-static.com/29d6c084-0f1a-4093-b260-676d7b08baf0/movies.json?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210412%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210412T133354Z&X-Amz-Expires=86400&X-Amz-Signature=ce5e87d945c77f237feeef8d1f61b40bed160645ce65c7ae7d6c74b7b24ba01c&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22movies.json%22"
-      )
-      .then((apiResponse) => {
-        this.setState({ movies: apiResponse.data.results });
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }
+  // componentDidMount() {
+  //   // axios
+  //   //   .get(
+  //   //     "https://s3.us-west-2.amazonaws.com/secure.notion-static.com/29d6c084-0f1a-4093-b260-676d7b08baf0/movies.json?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210412%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210412T133354Z&X-Amz-Expires=86400&X-Amz-Signature=ce5e87d945c77f237feeef8d1f61b40bed160645ce65c7ae7d6c74b7b24ba01c&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22movies.json%22"
+  //   //   )
+  //   //   .then((apiResponse) => {
+  //   //     this.setState({ movies: apiResponse.data.results });
+  //   //   })
+  //   //   .catch((err) => {
+  //   //     console.log(err);
+  //   //   });
+  // }
 
   handleClick(movie) {
     this.setState({ selectedMovie: movie });
   }
 
+  handleSearch = (e) => {
+    this.setState({ search: e.target.value });
+  };
+
   render() {
+    const filteredMovie = this.state.movies.filter((movie) => {
+      return movie.title
+        .toLowerCase()
+        .includes(this.state.search.toLowerCase());
+    });
+
     return (
-      <>
-        <SearchAppBar />
+      <div className="container">
+        <SearchAppBar handleSearch={this.handleSearch} />
 
         {this.state.selectedMovie !== null && (
           <div>
@@ -37,7 +49,7 @@ class MoviesList extends Component {
           </div>
         )}
 
-        {this.state.movies.map((movie) => {
+        {filteredMovie.map((movie) => {
           return (
             <div
               onClick={(e) => this.handleClick(movie)}
@@ -47,7 +59,7 @@ class MoviesList extends Component {
             </div>
           );
         })}
-      </>
+      </div>
     );
   }
 }

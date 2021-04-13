@@ -4,12 +4,17 @@
 // import FormControl from "react-bootstrap/Formcontrol";
 // import Button from "react-bootstrap/Button";
 
-// const SearchBar = (props) => {
+// const SearchAppBar = (props) => {
 //   return (
 //     <>
 //       <Navbar bg="light" variant="light">
 //         <Form inline>
-//           <FormControl type="text" placeholder="Search" className="mr-sm-2" />
+//           <FormControl
+//             onChange={props.handleSearch}
+//             type="text"
+//             placeholder="Search"
+//             className="mr-sm-2"
+//           />
 //           <Button variant="outline-primary">Search</Button>
 //         </Form>
 //       </Navbar>
@@ -17,7 +22,7 @@
 //   );
 // };
 
-// export default SearchBar;
+// export default SearchAppBar;
 
 import React from "react";
 import AppBar from "@material-ui/core/AppBar";
@@ -78,7 +83,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function SearchAppBar() {
+function SearchAppBar(props) {
   const classes = useStyles();
 
   return (
@@ -92,6 +97,7 @@ function SearchAppBar() {
 
             <InputBase
               placeholder="Search…"
+              onChange={props.handleSearch}
               classes={{
                 root: classes.inputRoot,
                 input: classes.inputInput,
