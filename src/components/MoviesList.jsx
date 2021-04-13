@@ -40,7 +40,7 @@ class MoviesList extends Component {
         {this.state.movies.map((movie) => {
           return (
             <div
-              onClick={(movie) => this.handleClick(movie)}
+              onClick={(e) => this.handleClick(movie)}
               style={{ textDecoration: "none", color: "black" }}
             >
               <h3 key={movie.id}>{movie.title}</h3>
