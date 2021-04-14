@@ -4,8 +4,8 @@ A simple movie browsing app.
 
 ### `Features`
 
-- Browse the list of movies.
-- A search bar.
+- Browse a list of movies.
+- Search.
 - Details concerning a movie.
 
 ### `Technologies`

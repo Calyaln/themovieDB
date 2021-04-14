@@ -1,5 +1,5 @@
 import React from "react";
-//import StarRating from "./StarRating";
+import StarRating from "./StarRating";
 
 const Movie = (props) => {
   const img_api = "https://image.tmdb.org/t/p/original/";
@@ -17,8 +17,8 @@ const Movie = (props) => {
 
         <div className="movieCard--detail-1">
           <h3>{title}</h3>
-          <div>{vote_average}/10</div>
-          {/* <StarRating rating={vote_average} /> */}
+          <StarRating rating={vote_average} />
+          <div>{vote_average / 2}</div>
         </div>
       </div>
 

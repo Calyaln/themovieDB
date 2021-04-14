@@ -1,19 +1,19 @@
 import React from "react";
 
-const StarRating = ({ vote_average }) => {
-  if (vote_average > 1) {
+const starsRating = (props) => {
+  if (props.rating > 1 && props.rating < 3) {
     return <span>★☆☆☆☆</span>;
-  } else if (vote_average > 3) {
+  } else if (props.rating > 3 && props.rating < 5) {
     return <span>★★☆☆☆</span>;
-  } else if (vote_average > 5) {
+  } else if (props.rating > 5 && props.rating < 7) {
     return <span>★★★☆☆</span>;
-  } else if (vote_average > 7) {
+  } else if (props.rating > 7 && props.rating < 9) {
     return <span>★★★★☆</span>;
-  } else if (vote_average > 9) {
+  } else if (props.rating > 9) {
     return <span>★★★★★</span>;
   } else {
-    return null;
+    return <span>☆☆☆☆☆</span>;
   }
 };
 
-export default StarRating;
+export default starsRating;

@@ -1,29 +1,3 @@
-// import React from "react";
-// import Navbar from "react-bootstrap/Navbar";
-// import Form from "react-bootstrap/Form";
-// import FormControl from "react-bootstrap/Formcontrol";
-// import Button from "react-bootstrap/Button";
-
-// const SearchAppBar = (props) => {
-//   return (
-//     <>
-//       <Navbar bg="light" variant="light">
-//         <Form inline>
-//           <FormControl
-//             onChange={props.handleSearch}
-//             type="text"
-//             placeholder="Search"
-//             className="mr-sm-2"
-//           />
-//           <Button variant="outline-primary">Search</Button>
-//         </Form>
-//       </Navbar>
-//     </>
-//   );
-// };
-
-// export default SearchAppBar;
-
 import React from "react";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
