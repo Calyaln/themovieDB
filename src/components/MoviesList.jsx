@@ -42,30 +42,28 @@ class MoviesList extends Component {
 
     return (
       <div className="container">
-        <div className="container--moviesDetails">
-          <div className="container--movies">
-            <div className="container--searchbar">
-              <SearchAppBar handleSearch={this.handleSearch} />
-            </div>
-            {filteredMovie.map((movie) => {
-              return (
-                <div
-                  onClick={(e) => this.handleClick(movie)}
-                  style={{ textDecoration: "none", color: "black" }}
-                  key={movie.id}
-                >
-                  <h3>{movie.title}</h3>
-                </div>
-              );
-            })}
+        <div className="container--movies">
+          <div className="container--searchbar">
+            <SearchAppBar handleSearch={this.handleSearch} />
           </div>
-
-          {this.state.selectedMovie !== null && (
-            <div className="container--movie">
-              <Movie movie={this.state.selectedMovie} />
-            </div>
-          )}
+          {filteredMovie.map((movie) => {
+            return (
+              <div
+                onClick={(e) => this.handleClick(movie)}
+                style={{ textDecoration: "none", color: "black" }}
+                key={movie.id}
+              >
+                <h3>{movie.title}</h3>
+              </div>
+            );
+          })}
         </div>
+
+        {this.state.selectedMovie !== null && (
+          <div className="container--movie">
+            <Movie movie={this.state.selectedMovie} />
+          </div>
+        )}
       </div>
     );
   }
