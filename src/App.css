@@ -1,50 +1,58 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* styling for the movies list */
+.container {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  height: 100%;
 }
 
-.App-link {
-  color: #61dafb;
+.container--moviesDetails {
+  display: flex;
+  flex-direction: row;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.container--movies {
+  cursor: pointer;
 }
 
-.container {
-  display: grid;
-}
-
-.movieCard {
-  padding: 2rem 4rem;
-  border-radius: 18px;
+.container--movies * h3 {
+  margin: 10px;
+  padding: 10px;
+  border-radius: 3px;
   box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
-  margin-bottom: 2rem;
-  background-color: rgb(161, 221, 161);
+}
+
+h3:hover {
+  background-color: rgb(174, 211, 174);
+}
+
+/* styling for the movie card */
+.movieCard {
+  height: 100%;
+  background-color: rgb(174, 211, 174);
+  padding: 2rem 4rem;
+}
+
+.movieCard--element {
+  display: flex;
+  flex-direction: row;
+}
+.movieCard--image {
+  max-width: 20%;
+  height: auto;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
+}
+
+.movieCard--detail-1 {
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.movieCard--detail-2 {
+  display: flex;
+  flex-direction: column;
+  align-content: space-around;
+  margin: 20px 0;
 }
