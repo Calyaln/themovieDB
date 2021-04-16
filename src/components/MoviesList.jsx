@@ -31,6 +31,18 @@ class MoviesList extends Component {
 
   handleSearch = (e) => {
     this.setState({ search: e.target.value });
+
+    axios
+      .get(
+        "https://api.themoviedb.org/3/search/movie?api_key=5f2e58ff2fad020f46809302f356511e&language=en-US&page=1&include_adult=false&query=" +
+          e.target.value
+      )
+      .then((apiResponse) => {
+        this.setState({ movies: apiResponse.data.results });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
   render() {
