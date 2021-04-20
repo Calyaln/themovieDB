@@ -1,5 +1,7 @@
 import React from "react";
 
+// why not try with while loop
+
 const starsRating = (props) => {
   if (props.rating > 1 && props.rating < 3) {
     return <span>★☆☆☆☆</span>;
